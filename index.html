@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FORTUNA | Russische Spezialitäten Wendlingen</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0; padding: 0; background: #fcfcfc; color: #333;
+            line-height: 1.6; scroll-behavior: smooth;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav { position: fixed; top: 20px; width: 100%; z-index: 100; }
+        .nav-inner {
+            max-width: 950px; margin: 0 auto; background: rgba(255,255,255,0.95);
+            padding: 12px 35px; border-radius: 50px; display: flex;
+            justify-content: space-between; align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee;
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-weight: 800; font-size: 22px; letter-spacing: -1px; color: #111; }
+        .nav-links a { text-decoration: none; color: #d35400; font-weight: 700; font-size: 14px; text-transform: uppercase; }
+
+        /* Hero */
+        .hero { padding: 160px 0 80px 0; display: flex; flex-wrap: wrap; gap: 60px; align-items: center; }
+        .hero-text { flex: 1.2; min-width: 320px; }
+        .hero-text h1 { font-size: 58px; line-height: 1.05; margin: 0 0 25px 0; color: #111; letter-spacing: -2px; }
+        .hero-text p { font-size: 20px; color: #666; margin-bottom: 35px; max-width: 550px; }
+
+        /* Video Card */
+        .video-card {
+            flex: 1; min-width: 350px; height: 480px; background: #1a1a1a;
+            border-radius: 45px; position: relative; overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(45deg, #222, #444);
+            transition: 0.3s;
+        }
+        .video-card:hover { transform: translateY(-5px); }
+        .play-btn {
+            width: 80px; height: 80px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .video-label { position: absolute; bottom: 40px; left: 40px; color: white; z-index: 2; }
+
+        /* Content Sections */
+        .section-white { background: white; padding: 100px 0; border-radius: 80px 80px 0 0; box-shadow: 0 -20px 40px rgba(0,0,0,0.02); }
+        .text-block { max-width: 850px; margin: 0 auto; text-align: center; margin-bottom: 60px; }
+        .text-block h2 { font-size: 42px; margin-bottom: 25px; letter-spacing: -1px; }
+        .text-block p { font-size: 18px; color: #444; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
+
+        .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: #fcfcfc; padding: 35px; border-radius: 35px; border: 1px solid #f0f0f0; transition: 0.3s; }
+        .card:hover { border-color: #d35400; background: white; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .card h4 { color: #d35400; font-size: 22px; margin-top: 0; margin-bottom: 12px; }
+
+        /* Footer */
+        footer { background: #111; color: #888; padding: 60px 0; text-align: center; border-radius: 80px 80px 0 0; }
+        .footer-links a { color: #666; text-decoration: none; margin: 0 15px; font-size: 13px; font-weight: bold; }
+        .footer-links a:hover { color: white; }
+
+        /* Modals */
+        #dsgvo-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; }
+        #legal-modal { display:none; position:fixed; inset:0; z-index:10000; background:rgba(0,0,0,0.85); backdrop-filter:blur(5px); align-items:center; justify-content:center; }
+    </style>
+</head>
+<body>
+
+<!-- DSGVO SPERRE -->
+<div id="dsgvo-overlay">
+    <div style="background: white; padding: 45px; border-radius: 40px; max-width: 420px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+        <h2 style="margin-top:0; font-size: 28px;">Herzlich willkommen</h2>
+        <p style="color:#666; margin-bottom:30px;">
+            Um unsere Seite mit Videos und Karten sehen zu können, stimmen Sie bitte der 
+            <a href="javascript:void(0)" onclick="openLegal('datenschutz.html')" style="color:#d35400; font-weight:bold; text-decoration: underline;">Datenschutzerklärung</a> zu.
+        </p>
+        <button onclick="acceptAndUnlock()" style="background:#d35400; color:white; padding:18px 45px; border:none; border-radius:35px; font-weight:bold; cursor:pointer; font-size:16px; width:100%;">Akzeptieren & Eintreten</button>
+    </div>
+</div>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo">FORTUNA</div>
+        <div class="nav-links"><a href="tel:+497024809554">📞 Anrufen</a></div>
+    </div>
+</nav>
+
+<div class="container">
+    <section class="hero">
+        <div class="hero-text">
+            <span style="color:#d35400; font-weight:800; text-transform:uppercase; font-size:12px; letter-spacing:1px; display:block; margin-bottom:10px;">
+                Fortuna - Russische Spezialitäten - Seit 2011 in Wendlingen
+            </span>
+            <h1>Ein Stück Heimat auf Ihrem Teller<br><span style="font-style:italic; color:#777;">Vielfalt neu entdecken.</span></h1>
+            <p>Ihr Spezialist für russische und osteuropäische Feinkost im Großraum Stuttgart.</p>
+            <div style="display:flex; gap:15px;">
+                <div style="background:white; padding:20px; border-radius:25px; border:1px solid #eee; flex:1; text-align:center;">
+                    <small style="color:#999; font-weight:bold;">MO - FR</small><br><strong>09:00 - 19:00 Uhr</strong>
+                </div>
+                <div style="background:white; padding:20px; border-radius:25px; border:1px solid #eee; flex:1; text-align:center;">
+                    <small style="color:#999; font-weight:bold;">SAMSTAG</small><br><strong>09:00 - 15:00 Uhr</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-card" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://youtu.be/XYc26RQe990' frameborder=\'0\' allow=\'autoplay; encrypted-media\' allowfullscreen></iframe>'">
+            <div class="play-btn">
+                <svg width="35" height="35" viewBox="0 0 24 24" fill="#d35400"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="video-label">
+                <small style="opacity:0.7; text-transform:uppercase; font-size:10px; font-weight:bold;">Video-Tour</small>
+                <h3 style="margin:5px 0 0 0; font-size:24px;">Blick in unseren Laden</h3>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="section-white">
+    <div class="container">
+        <div class="text-block">
+            <h2>Herzlich willkommen - Добро пожаловать!</h2>
+            <p>Suchen Sie authentische russische Lebensmittel oder Spezialitäten aus der Ukraine, Polen, Kasachstan und Rumänien? Dann sind Sie bei uns genau richtig. Unser unabhängiges Familienunternehmen wurde am 1. April 2011 eröffnet und hat sich seitdem zu einer der beliebtesten Adressen für osteuropäische Feinkost im Großraum Stuttgart entwickelt.</p>
+            <p>Trotz unserer überschaubaren Ladenfläche bieten wir Ihnen ein sorgfältig ausgewähltes Sortiment, das fast alles umfasst, was das osteuropäische Herz begehrt. Von alkoholischen Spezialitäten bis hin zu einer riesigen Auswahl an Süßigkeiten – bei uns finden Sie die gefragtesten Produkte der ehemaligen Sowjetunion.</p>
+        </div>
+
+        <div class="highlights">
+            <div class="card"><h4>🥩 Wurst & Fleisch</h4><p>Hochwertige Fleischwaren nach russischem Rezept von unserem langjährigen Partner Lackmann.</p></div>
+            <div class="card"><h4>🐟 Fischspezialitäten</h4><p>Frischer, geräucherter, getrockneter sowie gesalzener Fisch. Qualität für Kenner!</p></div>
+            <div class="card"><h4>🥟 Tiefkühl-Highlights</h4><p>Pelmeni, Pierogi, Manti, Piroschki, Tschebureki und Wareniki. Geschmack wie hausgemacht.</p></div>
+            <div class="card"><h4>🍭 Kindheitsträume</h4><p>Ob russische Süßwaren oder Klassiker aus der ehemaligen DDR. Entdecken Sie Altbekanntes neu.</p></div>
+            <div class="card"><h4>💸 RIA Money Transfer</h4><p>Schicken Sie von Wendlingen Geld weltweit zu sehr günstigen Preisen. Sicher, günstig und schnell.</p></div>
+            <div class="card"><h4>📺 KartinaTV</h4><p>Verträge, Monats- und Jahreskarten für über 200 russischsprachige TV-Kanäle ab 13,50 EUR/Monat.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p style="margin-bottom: 25px;">Fortuna Markt | Ulmer Str. 6, 73240 Wendlingen am Neckar</p>
+        <div class="footer-links">
+            <a href="javascript:void(0)" onclick="openLegal('impressum.html')">Impressum</a>
+            <a href="javascript:void(0)" onclick="openLegal('datenschutz.html')">Datenschutz</a>
+        </div>
+        <p style="margin-top:30px; font-size:11px; opacity:0.4;">&copy; 2026 Ruslan Schumacher. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
+<div id="legal-modal">
+    <div style="background:white; width:92%; max-width:850px; height:85vh; border-radius:40px; position:relative; overflow:hidden; display:flex; flex-direction:column;">
+        <button onclick="closeLegal()" style="position:absolute; top:20px; right:20px; background:#111; color:white; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:22px; z-index:10;">&times;</button>
+        <iframe id="legal-frame" src="" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
+</div>
+
+<script>
+    function acceptAndUnlock() {
+        document.getElementById('dsgvo-overlay').style.display = 'none';
+        localStorage.setItem('fortuna_ok', 'true');
+    }
+
+    if (localStorage.getItem('fortuna_ok') === 'true') {
+        document.getElementById('dsgvo-overlay').style.display = 'none';
+    }
+
+    function openLegal(page) {
+        const modal = document.getElementById('legal-modal');
+        const frame = document.getElementById('legal-frame');
+        frame.src = page;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLegal() {
+        document.getElementById('legal-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+        if (event.target === document.getElementById('legal-modal')) closeLegal();
+    };
+</script>
+
+</body>
+</html>

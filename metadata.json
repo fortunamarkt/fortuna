@@ -1,0 +1,12 @@
+{
+  "name": "FORTUNA Markt Website",
+  "description": "A clean, one-page information website for a local grocery store, featuring essential business details and a YouTube background video.",
+  "entry": "index.html",
+  "multiPage": false,
+  "files": [
+    "index.html",
+    "metadata.json"
+  ],
+  "tailwind": { "source": "play-cdn" },
+  "generatedAt": "2023-11-29T12:00:00Z"
+}
